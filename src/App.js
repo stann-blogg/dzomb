@@ -7,8 +7,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+     <div className="img">
+     <img src="" alt="" />
+     </div>
       <div className="content">
-        <h1>App component</h1>
+        {/* <h1>App component</h1> */}
         <Home />
       </div>
     </div>

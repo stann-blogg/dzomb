@@ -10,6 +10,9 @@ const Home = () => {
 
     ]
     );
+    const [isPending, setIsPending] = useState(true);
+
+    const [name, setName] = useState('mario');
    
     const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
@@ -17,14 +20,20 @@ const Home = () => {
 
     }
 
-    useEffect(() =>{
-        console.log('use effect run');
-        console.log('blogs');
-    });
+    useEffect(() => {
+        setTimeout(() => {
+            
+        });
+        console.log('use effect ran');
+        setIsPending(false);
+    }, []);
 
     return (
         <div className="home">
+            {isPending && <div>loading...</div>}
            <Bloglist blogs={blogs} tittle="All Blogs!"  handleDelete={handleDelete}/>
+           <button onClick={() => setName('luigi')}>change name</button>
+        <p>{name}</p>
            {/* <Bloglist blogs={blogs.filter((blog) => blog.author === 'mario')} tittle="Mario's blogs" /> */}
         </div>
 
